@@ -2,7 +2,7 @@
 
 // 1) Dán URL Web App (Google Apps Script) của bạn vào đây để lưu Google Sheets.
 // Nếu để rỗng, form vẫn chạy nhưng chỉ hiển thị thông báo (không gửi đi).
-const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxdTJPxS9RE1LHWBm65kfzrdBcoE86kNiHl0laCRLUezcv8TFVFhn9SK1Ugdzvnw_291A/exec"; // ví dụ: "https://script.google.com/macros/s/XXXX/exec"
+const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzXvPcqYwu47CiGKm4hz2bZyCEMW9yK8-WS1mYx23hJzo1ns6JWKlu1rW27xggjexSKDg/exec"; // ví dụ: "https://script.google.com/macros/s/XXXX/exec"
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
