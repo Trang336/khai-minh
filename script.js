@@ -156,18 +156,16 @@ function validateForm(data) {
 }
 
 async function submitToSheets(payload) {
-  // Gửi kiểu form-urlencoded để dễ tương thích với Apps Script.
-  const body = new URLSearchParams(payload);
+  // Thay đổi cách gửi từ URLSearchParams sang chuỗi JSON string
+  const body = JSON.stringify(payload);
 
-  // Lưu ý CORS:
-  // - Apps Script đôi khi không trả được CORS headers cho website tĩnh.
-  // - `mode: "no-cors"` sẽ tạo request gửi đi, response opaque (không đọc được).
-  // - Vì vậy ta coi như "đã gửi" nếu request không throw.
   await fetch(SHEETS_ENDPOINT, {
     method: "POST",
-    mode: "no-cors",
-    headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-    body,
+    mode: "no-cors", // Giữ nguyên no-cors để tránh lỗi bảo mật chéo của website tĩnh
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8"
+    },
+    body
   });
 }
 
